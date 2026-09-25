@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Environments and editors
+.venv/
+venv/
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Data and generated artifacts
+/data/
+/datasets/
+/logs/
+/checkpoints/
+*.pt
+*.pth
+*.out
+
+# Local experiment metadata
+.env
+wandb/
+runs/

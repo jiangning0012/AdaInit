@@ -1,0 +1,8 @@
+AdaInit
+
+This distribution includes code adapted from TTAB
+(https://github.com/LINs-lab/ttab) and from the baseline implementations
+identified in the corresponding source-file docstrings. The NCTTA backend is
+adapted from https://github.com/Cevaaa/NCTTA.
+
+The repository is distributed under the Apache License 2.0. See LICENSE.
