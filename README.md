@@ -1,19 +1,12 @@
 # AdaInit: Recovery-Aware Initialization for Continual Test-Time Adaptation
 
-AdaInit is an event-driven initialization controller for single-sample continual test-time adaptation (CTTA). It detects recovery opportunities from the unlabeled input stream, retrieves reusable source or historical states, evaluates candidate initializations causally, and commits one hard initialization while keeping a single deployed model.
-
 <p align="center">
-  <img src="assets/adainit_overview.png" alt="AdaInit overview" width="95%">
+  <img src="assets/overview.png" alt="AdaInit overview" width="95%">
 </p>
 
-This release is intentionally limited to the final experimental code used for:
+## Abstract
 
-- ViT-B/16 (`vit_base_patch16_224`) on ImageNet-C;
-- replay CTTA and gradual CTTA;
-- AdaInit with the NCTTA backend;
-- the `no_adaptation`, Tent, SAR, SAR2, CoTTA, NCTTA, COME, and AdaDEM baselines.
-
-Datasets, pretrained weights, logs, checkpoints, plots, notebooks, and earlier experiment variants are not included.
+Continual test-time adaptation (CTTA) enables a pretrained model to adapt online to unlabeled and nonstationary test streams, yet reliable adaptation becomes particularly challenging when only a single observation is available at each time step. Existing methods primarily focus on maintaining long-term adaptation stability, while a continually updated model may still remain at low accuracy for an extended period after performance degradation. We identify this delayed restoration as recovery inertia and observe that the subsequent recovery trajectory depends strongly on the state from which adaptation proceeds. Motivated by this observation, we formulate recovery as an online initialization decision problem and propose AdaInit, a recovery-aware framework for single-sample CTTA. AdaInit determines when the current initialization should be reconsidered through momentum domain signatures, maintains reliable historical adaptation states in a health-aware knowledge cache, and evaluates candidate initializations through short causal adaptation trajectories induced by the underlying TTA method. An alternative state is adopted only when it exhibits a sufficiently reliable advantage over continuing from the current state. AdaInit preserves the adaptation objective of the underlying method and requires neither target labels nor known domain boundaries. Extensive experiments on CIFAR-10-C and ImageNet-C under single-sample TTA as well as recurring and gradual CTTA settings demonstrate consistent improvements over strong baselines.
 
 ## Installation
 
